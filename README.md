@@ -26,8 +26,9 @@ A futtatás előtt:
 
 - Telepített Python szükséges
 - Telepített Ollama szükséges
-- Futnia kell a kiválasztott LLM modellnek
-- A scriptben be kell állítani az adatbázis kapcsolatot
+- Az Ollama szolgáltatásnak futnia kell, és a .env fájlban megadott modellnek telepítve kell lennie.
+- Elérhető SQL Server adatbázis
+- A projektben található .env fájl megfelelő konfigurációja
 
 ### Virtuális környezet létrehozása:
 ```bash
@@ -39,8 +40,15 @@ venv\Scripts\activate
 ```
 ### Szükséges Python csomagok telepítése:
 ```bash
-pip install pyodbc ollama
+pip install -r requirements.txt 
 ```
+### .env fájl, adatbázis-kapcsolatok és Ollama modell beállítása:
+```bash
+DB_CONNECTION_RAWSTAGING=Driver={SQL Server};Server=...;Database=...;Trusted_Connection=yes;
+DB_CONNECTION_DIMFACT=Driver={SQL Server};Server=...;Database=...;Trusted_Connection=yes;
+OLLAMA_MODEL=qwen2.5:1.5b
+```
+
 ## Power BI
 [A tényleges eredmény oldalt itt lehet megtakinteni.](https://app.powerbi.com/view?r=eyJrIjoiNzdhMTAxOWUtZGU2Yy00ZTUxLWE5YjQtNmVlOWFhOWJmNjM1IiwidCI6IjZhMzU0OGFiLTc1NzAtNDI3MS05MWE4LTU4ZGEwMDY5NzAyOSIsImMiOjh9)
 

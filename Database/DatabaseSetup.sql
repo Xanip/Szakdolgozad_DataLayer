@@ -1,16 +1,28 @@
+IF DB_ID(N'BI_Database_RawAndStaging') IS NULL
+BEGIN
+	CREATE DATABASE [BI_Database_RawAndStaging];
+END
+GO
+
+IF DB_ID(N'BI_Database_DimFact') IS NULL
+BEGIN
+	CREATE DATABASE [BI_Database_DimFact];
+END
+GO
+
+-- =========================================
+-- 2. RAW + STAGING adatbázis
+-- =========================================
+
+USE [BI_Database_RawAndStaging];
+GO
 -----------------
 --DELETE TABLES--
 -----------------
+DROP TABLE IF EXISTS [dbo].[STGnewsCategory];
 DROP TABLE IF EXISTS [dbo].[RAWcurrencies];
 DROP TABLE IF EXISTS [dbo].[RAWexchange];
 DROP TABLE IF EXISTS [dbo].[RAWnews];
-DROP TABLE IF EXISTS [dbo].[DimDate];
-DROP TABLE IF EXISTS [dbo].[DimCurrency];
-DROP TABLE IF EXISTS [dbo].[DimSource];
-DROP TABLE IF EXISTS [dbo].[DimAuthor];
-DROP TABLE IF EXISTS [dbo].[DimCategory];
-DROP TABLE IF EXISTS [dbo].[FactExchange];
-DROP TABLE IF EXISTS [dbo].[FactNews];
 
 --------------
 --RAW TABLES--
@@ -49,7 +61,7 @@ CREATE TABLE RAWnews (
     Author NVARCHAR(1000),
     Title NVARCHAR(1000),
     [Description] NVARCHAR(1000),
-    [Url] NVARCHAR(2000),
+    [Url] NVARCHAR(2000) UNIQUE,
     [UrlToImage] NVARCHAR(2000),
     [PublishedAt] DATETIME NOT NULL,
     [Content] NVARCHAR(1000)
@@ -67,6 +79,48 @@ CREATE TABLE STGnewsCategory (
         FOREIGN KEY (RAWArticleID)
         REFERENCES RAWnews(ArticleID)
 );
+
+-----------------------
+-- RAW TABLE INDEXES --
+-----------------------
+-- RAWexchange
+CREATE INDEX IX_RAWexchange_ProcessedFlag
+ON RAWexchange (ProcessedFlag);	
+
+-- RAWnews
+CREATE INDEX IX_RAWnews_ProcessedFlag
+ON RAWnews (ProcessedFlag);
+
+CREATE INDEX IX_RAWnews_Source
+ON RAWnews (Source_id, Source_name);
+
+
+-- =========================================
+-- 3. DIM + FACT adatbázis
+-- =========================================
+
+USE [BI_Database_DimFact];
+GO
+
+-----------------
+--DELETE TABLES--
+-----------------
+-- VIEWS
+DROP VIEW IF EXISTS dbo.vw_DimBaseCurrency;
+DROP VIEW IF EXISTS dbo.vw_DimTargetCurrency;
+GO
+
+-- FACTS
+DROP TABLE IF EXISTS dbo.FactNews;
+DROP TABLE IF EXISTS dbo.FactExchange;
+
+-- DIMS
+DROP TABLE IF EXISTS dbo.DimCategory;
+DROP TABLE IF EXISTS dbo.DimAuthor;
+DROP TABLE IF EXISTS dbo.DimSource;
+DROP TABLE IF EXISTS dbo.DimCurrency;
+DROP TABLE IF EXISTS dbo.DimDate;
+GO
 
 -----------------------
 -- DIMENSIONAL TABLES--
@@ -155,6 +209,41 @@ CREATE TABLE FactNews (
     CONSTRAINT FK_FactNews_Category
         FOREIGN KEY (CategoryID) REFERENCES DimCategory(CategoryID)
 );
+GO
+
+-----------------------
+-- DIM TABLE INDEXES --
+-----------------------
+-- DimDate
+CREATE UNIQUE INDEX UX_DimDate_Date
+ON DimDate ([Date]);
+
+CREATE INDEX IX_DimDate_YearMonth
+ON DimDate ([Year], [Month]);
+
+-- DimAuthor
+CREATE INDEX IX_DimAuthor_Name
+ON DimAuthor (AuthorName);
+
+------------------------
+-- FACT TABLE INDEXES --
+------------------------
+-- FactExchange
+CREATE INDEX IX_FactExchange_CurrencyLookup
+ON FactExchange (BaseCurrencyID, CurrencyID);
+
+-- FactNews
+CREATE INDEX IX_FactNews_Source
+ON FactNews (SourceID);
+
+CREATE INDEX IX_FactNews_Author
+ON FactNews (AuthorID);
+
+CREATE INDEX IX_FactNews_Category
+ON FactNews (CategoryID);
+
+CREATE INDEX IX_FactNews_DimCombo
+ON FactNews (DateID, SourceID, CategoryID);
 GO
 
 ---------

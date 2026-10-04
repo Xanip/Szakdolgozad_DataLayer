@@ -1,0 +1,3 @@
+pyodbc
+ollama
+python-dotenv

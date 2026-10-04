@@ -1,24 +1,45 @@
 import pyodbc
 import ollama
 import time
+import os
+from dotenv import load_dotenv
 
+# .env fájl betöltése
+load_dotenv()
+
+conn_str_rawstaging = os.getenv("DB_CONNECTION_RAWSTAGING")
+conn_str_dimfact = os.getenv("DB_CONNECTION_DIMFACT")
+model = os.getenv("OLLAMA_MODEL")
+
+if not conn_str_rawstaging or not conn_str_dimfact:
+    raise ValueError("A DB_CONNECTION környezeti változó nincs beállítva. Kérlek, ellenőrizd a .env fájlt.")
+
+if not model:
+    raise ValueError("A OLLAMA_MODEL környezeti változó nincs beállítva. Kérlek, ellenőrizd a .env fájlt.")
 
 # 1. ADATOK LEKÉRÉSE (Read-only)
 print("Csatlakozás az adatbázishoz...")
-conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=DESKTOP-VEDC4M9\SQLEXPRESS01;'
-                      'Database=Onvezetett_laboratorium;'
-                      'Trusted_Connection=yes;')
-cursor = conn.cursor()
+dimfact_conn = pyodbc.connect(conn_str_dimfact)
+# conn = pyodbc.connect('Driver={SQL Server};'
+#                       'Server=DESKTOP-VEDC4M9\SQLEXPRESS01;'
+#                       'Database=Onvezetett_laboratorium;'
+#                       'Trusted_Connection=yes;')
+dimdact_cursor = dimfact_conn.cursor()
 
 # Olvasuk a kategóriákat a DimCategory táblából, hogy biztosan naprakészek legyenek
 query = """
     SELECT CategoryName FROM DimCategory
 """
-cursor.execute(query)
-allowed_categories_db = [row.CategoryName for row in cursor.fetchall()]
+dimdact_cursor.execute(query)
+allowed_categories_db = [row.CategoryName for row in dimdact_cursor.fetchall()]
 print(f"Adatbázisból lekért kategóriák: {allowed_categories_db}")
 categories_string = ", ".join(allowed_categories_db)
+
+dimdact_cursor.close()
+dimfact_conn.close()  # Bezárjuk a DimFact adatbázis kapcsolatot, mert már nincs rá szükség
+
+raw_conn = pyodbc.connect(conn_str_rawstaging)
+raw_cursor = raw_conn.cursor()
 
 # Hírek lekérdezése a RAWnews táblából, ahol ProcessedFlag = 0 (még nem feldolgozott cikkek)
 query = """
@@ -26,8 +47,8 @@ query = """
     FROM RAWnews r
     WHERE r.ProcessedFlag = 0
 """
-cursor.execute(query)
-articles = cursor.fetchall()
+raw_cursor.execute(query)
+articles = raw_cursor.fetchall()
 total_articles = len(articles)
 
 if total_articles == 0:
@@ -84,7 +105,8 @@ for i, article in enumerate(articles, 1):
 
     # Ollama hívás qwen2.5:1.5b modellel
     response = ollama.chat(
-        model='qwen2.5:1.5b', 
+        #model='qwen2.5:1.5b', 
+        model=model,
         messages=[{'role': 'user', 'content': prompt}],
         options={'temperature': 0.0}
     )
@@ -107,14 +129,14 @@ for res in results:
         INSERT INTO STGnewsCategory (RAWArticleID, GeneratedCategory)
         VALUES (?, ?)
     """
-    cursor.execute(insert_query, (article_id, category))
-conn.commit()
+    raw_cursor.execute(insert_query, (article_id, category))
+raw_conn.commit()
 
 print("Adatok sikeresen elmentve az adatbázisba!")
 
 # Kapcsolat lezárása
-cursor.close()
-conn.close()
+raw_cursor.close()
+raw_conn.close()
 
 # -----------------------------------------------------
 # 4. EREDMÉNYEK KIÍRÁSA A KONZOLRA
