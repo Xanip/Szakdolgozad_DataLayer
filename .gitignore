@@ -13,6 +13,9 @@ __pycache__/
 *.pyc
 *.pyo
 
+# LLM halucinációt ellenőrző JSON fájl (csak a fejlesztéshez kell)
+LLM_hallucinations.json
+
 # =========================
 # SSIS / VISUAL STUDIO FÁJLOK
 # =========================

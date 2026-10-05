@@ -1,3 +1,4 @@
+import json
 import pyodbc
 import ollama
 import time
@@ -60,6 +61,7 @@ print(f"\n--- TESZT INDUL: {total_articles} cikk feldolgozása ---")
 # -----------------------------------------------------
 # 2. AI FELDOLGOZÁS ÉS IDŐMÉRÉS
 results = []
+LLM_hallucination_list = []  # Lista a hallucinációk nyomon követésére, mit takarnak az Unknown (Other) kategóriák
 start_time = time.time() # Stopper elindítása
 
 for i, article in enumerate(articles, 1):
@@ -103,17 +105,27 @@ for i, article in enumerate(articles, 1):
     Content: {clean_content}
     Category: """
 
-    # Ollama hívás qwen2.5:1.5b modellel
+    # Ollama hívás a megadott modellel
     response = ollama.chat(
-        #model='qwen2.5:1.5b', 
         model=model,
         messages=[{'role': 'user', 'content': prompt}],
-        options={'temperature': 0.0}
+        options={'temperature': 0.0},
+        think = False
     )
     
     ai_answer = response['message']['content'].strip()
     if ai_answer.endswith('.'): ai_answer = ai_answer[:-1]
-    
+
+    # Lista, a hallucinációk nyomon követésére, ha az AI olyan kategóriát ad vissza, ami nincs az adatbázisban
+    if ai_answer not in allowed_categories_db:
+        LLM_hallucination_list.append({
+            "article_id": article_id,
+            "title": title,
+            "description": description,
+            "ai_answer": ai_answer,
+            "model": model
+        })
+
     final_category = ai_answer if ai_answer in allowed_categories_db else "Unknown (Other)"
     
     results.append((article_id, title, final_category))
@@ -122,7 +134,28 @@ end_time = time.time()
 elapsed_time = end_time - start_time
 
 # -----------------------------------------------------
-# 3. EREDMÉNYEK KIÍRÁSA Adatbázisba (Write-only)
+# 3. Halucinációk kiírása JSON fájlba, ha vannak
+hallucination_count = len(LLM_hallucination_list)
+hallucination_rate = hallucination_count / total_articles
+
+hallucination_data = {
+    "model": model,
+    "total_articles": total_articles,
+    "hallucination_count": hallucination_count,
+    "hallucination_rate": hallucination_rate,
+    "hallucinations": LLM_hallucination_list
+}
+
+with open("LLM_hallucinations.json", "w", encoding="utf-8") as f:
+    json.dump(
+        hallucination_data,
+        f,
+        ensure_ascii=False,
+        indent=4
+    )
+    
+# -----------------------------------------------------
+# 4. EREDMÉNYEK KIÍRÁSA Adatbázisba (Write-only)
 for res in results:
     article_id, title, category = res
     insert_query = """
