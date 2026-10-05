@@ -61,7 +61,7 @@ CREATE TABLE RAWnews (
     Author NVARCHAR(1000),
     Title NVARCHAR(1000),
     [Description] NVARCHAR(1000),
-    [Url] NVARCHAR(2000) UNIQUE,
+    [Url] NVARCHAR(2000) NOT NULL UNIQUE,
     [UrlToImage] NVARCHAR(2000),
     [PublishedAt] DATETIME NOT NULL,
     [Content] NVARCHAR(1000)
