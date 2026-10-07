@@ -11,8 +11,8 @@
   DTS:LocaleID="1038"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="267"
-  DTS:VersionGUID="{6E361AE5-1BED-4686-B6E5-A71172FEE545}">
+  DTS:VersionBuild="270"
+  DTS:VersionGUID="{AEB59A94-9B43-4A90-91E6-90F03D9C8E81}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -117,14 +117,35 @@
           ReadOnlyVariables="$Project::EnvFileRoute"
           ReadWriteVariables="User::NewsApiKey">
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_b17247e962504016b7eb385a6c7286d4")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_b17247e962504016b7eb385a6c7286d4")]
+[assembly: AssemblyCopyright("Copyright @  2026")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -543,35 +564,14 @@ namespace ST_b17247e962504016b7eb385a6c7286d4.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_b17247e962504016b7eb385a6c7286d4")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_b17247e962504016b7eb385a6c7286d4")]
-[assembly: AssemblyCopyright("Copyright @  2026")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -774,7 +774,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\DIM_Tables_Upload"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{50015C8F-73B1-4B53-9F7A-91462CA65818}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -2835,7 +2834,7 @@ where [refTable].[SourcerName] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task - Update RAWexchange to ProcessedFlag TRUE"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2852,7 +2851,7 @@ where [refTable].[SourcerName] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task - Update RAWnews to ProcessedFlag TRUE"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2931,7 +2930,7 @@ where [refTable].[CurrencyCode] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\FACT_Tables_Upload\FACTexchanges\270:invalid};</property>
+                      name="ParameterMap">#{Package\FACT_Tables_Upload\FACTexchanges\249:invalid};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3091,7 +3090,7 @@ where [refTable].[CurrencyCode] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\FACT_Tables_Upload\FACTexchanges\271:invalid};</property>
+                      name="ParameterMap">#{Package\FACT_Tables_Upload\FACTexchanges\250:invalid};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -10931,7 +10930,6 @@ where [refTable].[Url] = ?</property>
       DTS:refId="Package\RAW_Tables_Setup"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{3444b700-3519-4b13-8335-ba3520c84159}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -14391,6 +14389,7 @@ where [refTable].[Currency] = ? and [refTable].[BaseCurrency] = ? and [refTable]
           DTS:refId="Package\RAW_Tables_Setup\API_Call_News_From_Past_Month"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{40b5b203-d914-46f4-9cbd-a10c0b88a027}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -16402,6 +16401,7 @@ where [refTable].[Url] = ?</property>
           DTS:refId="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach Loop Container"
+          DTS:Disabled="True"
           DTS:DTSID="{C938E7C2-BD46-451A-9938-777F6BF0EA69}"
           DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
@@ -16598,7 +16598,7 @@ where [refTable].[Url] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                          name="ParameterMap">#{Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\272:invalid};</property>
+                          name="ParameterMap">#{Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\251:invalid};</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -18343,6 +18343,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\RAW_Tables_Setup\SQL - Fill up the DIMdate table"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{C77E301D-0C25-44A8-B8BB-100C22B75E61}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -18380,7 +18381,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\STGnewsCategory - Ollama category upload script"
       DTS:CreationName="Microsoft.ExecuteProcess"
       DTS:Description="Runs a python script which collects the available categories from the database and categorizes the ProcessedFlag=0 articles using them and Ollama."
-      DTS:Disabled="True"
       DTS:DTSID="{BC77C2AF-F1A0-4385-AC62-453C70FEE50E}"
       DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
@@ -18558,7 +18558,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\FACT_Tables_Upload\Execute SQL Task - Update RAWnews to ProcessedFlag TRUE"
           TopLeft="248.499989209076,102.200001048644" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="156,41.6"
           Id="Package\FACT_Tables_Upload\FACTexchanges"
           TopLeft="43.5000006829699,28" />
         <NodeLayout
@@ -18567,18 +18567,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="259.83332290666,32.3333343880045" />
         <EdgeLayout
           Id="Package\FACT_Tables_Upload.PrecedenceConstraints[Constraint]"
-          TopLeft="130.25000068297,70">
+          TopLeft="121.50000068297,69.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29"
+              EndConnector="9.20000000000002,29.4"
               Start="0,0"
-              End="0,21.5">
+              End="9.20000000000002,21.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,10.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.7"
+                    Point2="0,14.7"
+                    Point3="4,14.7" />
+                  <mssgle:LineSegment
+                    End="5.20000000000002,14.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.20000000000002,14.7"
+                    Point2="9.20000000000002,14.7"
+                    Point3="9.20000000000002,18.7" />
+                  <mssgle:LineSegment
+                    End="9.20000000000002,21.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18612,8 +18624,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="461.6,188"
-          Size="461.6,231.2"
+          PanelSize="461.6,216.8"
+          Size="461.6,260"
           Id="Package\FACT_Tables_Upload"
           TopLeft="235.0000385195,701.600003525615" />
         <NodeLayout
@@ -19110,7 +19122,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19132,7 +19146,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19670,7 +19686,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -19680,7 +19696,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -20334,9 +20350,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20358,9 +20372,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -20846,7 +20858,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20892,7 +20906,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -20908,13 +20924,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\OLE DB Destination"
           TopLeft="343,396" />
         <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\Data Conversion"
-          TopLeft="352,194" />
-        <NodeLayout
           Size="227.2,41.6"
           Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\Lookup - duplicate record filter"
           TopLeft="314,273" />
+        <NodeLayout
+          Size="231.2,41.6"
+          Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\Script Component for JSONnews"
+          TopLeft="314.166649501357,85.6666662990385" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\Data Conversion"
+          TopLeft="352,194" />
+        <EdgeLayout
+          Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader.Paths[Output 0]"
+          TopLeft="431.083324750679,127.266666299038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.7333337009615"
+              Start="0,0"
+              End="0,59.2333337009615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.2333337009615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader.Paths[Lookup No Match Output]"
           TopLeft="429.5,315">
@@ -20958,33 +21002,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="231.2,41.6"
-          Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader\Script Component for JSONnews"
-          TopLeft="314.166649501357,85.6666662990385" />
-        <EdgeLayout
-          Id="Package\RAW_Tables_Setup\Foreach_Synthetic_JSON_reader\Synthetic_news_reader.Paths[Output 0]"
-          TopLeft="431.083324750679,127.266666299038">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,66.7333337009615"
-              Start="0,0"
-              End="0,59.2333337009615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.2333337009615" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
