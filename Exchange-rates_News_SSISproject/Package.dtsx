@@ -11,8 +11,8 @@
   DTS:LocaleID="1038"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="271"
-  DTS:VersionGUID="{870C73E2-9A14-4397-B36C-B4EFF1746978}">
+  DTS:VersionBuild="302"
+  DTS:VersionGUID="{D59463F4-3BE8-442C-8430-A512D696A730}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -59,7 +59,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1250"
-          DTS:ConnectionString="C:\Users\Lehel\Desktop\UNI\7.felev\Szakdolgozat\Szakdolgozad_DataLayer\ArticleCategories.txt">
+          DTS:ConnectionString="C:\Users\Lehel\Desktop\UNI\7felev\Szakdolgozat\Szakdolgozad_DataLayer\ArticleCategories.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,7 +68,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Category"
-              DTS:DTSID="{7E5BC63D-C899-42EF-8811-4FB998BF10A5}"
+              DTS:DTSID="{5D7DE0DD-9296-4C2F-AB14-BACFA7871293}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -8930,6 +8930,7 @@ where [refTable].[Currency] = ? and [refTable].[BaseCurrency] = ? and [refTable]
           DTS:refId="Package\RAW_Tables_Daily\API_Call_News"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{6b23c5c3-91fc-46e2-8c12-6991af79bf1b}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -16415,7 +16416,7 @@ where [refTable].[Url] = ?</property>
             <DTS:ObjectData>
               <ForEachFileEnumeratorProperties>
                 <FEFEProperty
-                  Folder="C:\Users\Lehel\Desktop\UNI\7.felev\Szakdolgozat\Szakdolgozad_DataLayer\Database\SynteticNews2025_2026" />
+                  Folder="C:\Users\Lehel\Desktop\UNI\7felev\Szakdolgozat\Szakdolgozad_DataLayer\Database\SynteticNews2025_2026" />
                 <FEFEProperty
                   FileSpec="*.json" />
                 <FEFEProperty
@@ -18390,9 +18391,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecuteProcessData
-          Executable="C:\Users\Lehel\Desktop\UNI\7.felev\Szakdolgozat\Szakdolgozad_DataLayer\NewsCategorizerScipt\venv\Scripts\python.exe"
+          Executable="C:\Users\Lehel\Desktop\UNI\7felev\Szakdolgozat\Szakdolgozad_DataLayer\NewsCategorizerScipt\venv\Scripts\python.exe"
           Arguments="STGnewsCategoriesScript.py"
-          WorkingDirectory="C:\Users\Lehel\Desktop\UNI\7.felev\Szakdolgozat\Szakdolgozad_DataLayer\NewsCategorizerScipt" />
+          WorkingDirectory="C:\Users\Lehel\Desktop\UNI\7felev\Szakdolgozat\Szakdolgozad_DataLayer\NewsCategorizerScipt" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -18835,26 +18836,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="55.3666795520311,37.9999974868697"
+              EndConnector="55.366679552031,37.9999974868691"
               Start="0,0"
-              End="55.3666795520311,30.4999974868697">
+              End="55.366679552031,30.4999974868691">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.6830754229314" />
+                    End="0,18.6830754229311" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.6830754229314"
-                    Point2="0,22.6830754229314"
-                    Point3="4,22.6830754229314" />
+                    Point1="0,18.6830754229311"
+                    Point2="0,22.6830754229311"
+                    Point3="4,22.6830754229311" />
                   <mssgle:LineSegment
-                    End="51.3666795520311,22.6830754229314" />
+                    End="51.366679552031,22.6830754229311" />
                   <mssgle:CubicBezierSegment
-                    Point1="51.3666795520311,22.6830754229314"
-                    Point2="55.3666795520311,22.6830754229314"
-                    Point3="55.3666795520311,26.6830754229314" />
+                    Point1="51.366679552031,22.6830754229311"
+                    Point2="55.366679552031,22.6830754229311"
+                    Point3="55.366679552031,26.6830754229311" />
                   <mssgle:LineSegment
-                    End="55.3666795520311,30.4999974868697" />
+                    End="55.366679552031,30.4999974868691" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18897,14 +18898,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.6666670041613"
+              EndConnector="0,55.6666670041616"
               Start="0,0"
-              End="0,48.1666670041613">
+              End="0,48.1666670041616">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.1666670041613" />
+                    End="0,48.1666670041616" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18932,9 +18933,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     Point2="65.2205825901679,0"
                     Point3="65.2205825901679,4" />
                   <mssgle:LineSegment
-                    End="65.2205825901679,97.6833359368643" />
+                    End="65.2205825901679,97.6833359368642" />
                   <mssgle:CubicBezierSegment
-                    Point1="65.2205825901679,97.6833359368643"
+                    Point1="65.2205825901679,97.6833359368642"
                     Point2="65.2205825901679,101.683335936864"
                     Point3="69.2205825901679,101.683335936864" />
                   <mssgle:LineSegment
@@ -18990,7 +18991,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19012,7 +19015,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19118,7 +19123,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19140,7 +19147,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19842,7 +19851,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19864,7 +19875,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19886,7 +19899,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19908,7 +19923,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20446,7 +20463,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20492,7 +20511,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -20730,7 +20751,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20752,7 +20775,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

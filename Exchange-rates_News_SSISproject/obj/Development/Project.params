@@ -37,7 +37,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">C:\Users\Lehel\Desktop\UNI\7.felev\Szakdolgozat\Szakdolgozad_DataLayer\Database\SynteticNews2025_2026</SSIS:Property>
+        SSIS:Name="Value">C:\Users\Lehel\Desktop\UNI\7felev\Szakdolgozat\Szakdolgozad_DataLayer\Database\SynteticNews2025_2026</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -58,7 +58,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">C:\Users\Lehel\Desktop\UNI\7.felev\Szakdolgozat\Szakdolgozad_DataLayer\.env</SSIS:Property>
+        SSIS:Name="Value">C:\Users\Lehel\Desktop\UNI\7felev\Szakdolgozat\Szakdolgozad_DataLayer\.env</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
